@@ -1,1 +1,931 @@
-<h1>Hello, test file</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praveen Nair - Technology Leader & Innovator</title>
+    <style>
+        :root {
+            --primary-blue: #0077b5;  /* Professional blue */
+            --dark-blue: #004471;     /* Darker blue */
+            --white: #ffffff;
+            --black: #000000;
+            --green: #2e7d32;        /* Professional green */
+            --gray: #757575;         /* Medium gray */
+            --light-gray: #f5f5f5;   /* Light gray */
+            --silver: #e0e0e0;       /* Silver accent */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--black);
+            background-color: var(--white);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            color: var(--white);
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            z-index: 1;
+        }
+        
+        /* Share buttons in top right corner */
+        .share-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 0.8rem;
+            z-index: 2;
+        }
+        
+        .share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;  /* Smaller size */
+            height: 32px; /* Smaller size */
+            border-radius: 50%;
+            color: white;
+            font-size: 1rem; /* Smaller icon */
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .linkedin-share { background-color: #0077b5; }
+        .twitter-share { background-color: #1da1f2; }
+        .facebook-share { background-color: #3b5998; }
+        .email-share { background-color: var(--gray); }
+        .whatsapp-share { background-color: #25d366; }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--white);
+            background-color: var(--silver);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Rest of your CSS remains the same */
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .profile-text p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        
+        .tagline {
+            background-color: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info a {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: opacity 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        .contact-info a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        
+        .contact-info i {
+            font-size: 1.2rem;
+        }
+        
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-blue);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--black);
+            cursor: pointer;
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark-blue);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-blue);
+            border-radius: 3px;
+        }
+        
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid var(--silver);
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-blue);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        .skills {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .skill-category {
+            margin-bottom: 2rem;
+        }
+        
+        .skill-category h4 {
+            margin-bottom: 1rem;
+            color: var(--dark-blue);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--light-gray);
+            color: var(--dark-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: 1px solid var(--silver);
+            font-weight: 500;
+        }
+        
+        .skill-tag:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(0, 119, 181, 0.3);
+        }
+        
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .experience-item {
+            margin-bottom: 0;
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid var(--primary-blue);
+            border: 1px solid var(--silver);
+        }
+        
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .experience-title h3 {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            font-weight: 600;
+        }
+        
+        .experience-title p {
+            color: var(--primary-blue);
+            font-weight: 500;
+        }
+        
+        .experience-date {
+            color: var(--gray);
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+        
+        .experience-content ul {
+            list-style-position: outside;
+            margin-top: 1rem;
+            padding-left: 1.2rem;
+        }
+        
+        .experience-content li {
+            margin-bottom: 0.7rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .certification-card {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 3px solid var(--primary-blue);
+            border: 1px solid var(--silver);
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .certification-card h4 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .certification-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid var(--silver);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .footer-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px) scale(1.1);
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        .ai-credit {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .ai-credit a {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .ai-credit a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .about-content {
+                padding: 1.5rem;
+            }
+            
+            .skills-grid {
+                padding: 1.5rem;
+            }
+            
+            .experience-item {
+                padding: 1.5rem;
+            }
+            
+            .share-buttons {
+                position: static;
+                justify-content: center;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <!-- Share buttons in top right corner -->
+            <div class="share-buttons">
+                <div class="share-btn linkedin-share" title="Share on LinkedIn" onclick="shareOnLinkedIn()">
+                    <i class="fab fa-linkedin-in"></i>
+                </div>
+                <div class="share-btn twitter-share" title="Share on Twitter" onclick="shareOnTwitter()">
+                    <i class="fab fa-twitter"></i>
+                </div>
+                <div class="share-btn facebook-share" title="Share on Facebook" onclick="shareOnFacebook()">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="share-btn email-share" title="Share via Email" onclick="shareViaEmail()">
+                    <i class="fas fa-envelope"></i>
+                </div>
+            </div>
+            
+            <div class="profile">
+                <div class="profile-image">
+                    <!-- Placeholder for your photo -->
+                    <image src="praveen.jpg" />
+                </div>
+                <div class="profile-text">
+                    <h1>Praveen Nair</h1>
+                    <div class="tagline">Director, Products and Innovation | Technology Leader | Microsoft MVP</div>
+                    <p>21+ years of experience in IT industry | Cloud Architect | AI/ML Expert | Project Management Professional</p>
+                    <div class="contact-info">
+                        <a href="mailto:ninethsense@outlook.com"><i class="fas fa-envelope"></i> ninethsense@outlook.com</a>
+                        <a href="tel:+919645889033"><i class="fas fa-phone"></i> +91 9645889033</a>
+                        <a href="http://blog.ninethsense.com" target="_blank"><i class="fas fa-globe"></i> blog.ninethsense.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Rest of your HTML remains the same -->
+    <nav>
+        <div class="container nav-container">
+            <button class="mobile-menu-btn" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Technology Leader & Innovator</h3>
+                    <p>With over 21 years of experience in the IT industry, including 5 years in the UAE, I am a seasoned technology leader specializing in application architecture, modernization, and driving product strategy. My expertise spans across various industries including IT, Education, Healthcare, Finance, and more.</p>
+                    <p>As a Microsoft MVP and certified professional (PMP, CSPO, Azure Solutions Architect Expert), I bring a unique combination of technical expertise and leadership skills to foster innovation and lead global teams in delivering impactful solutions aligned with business and customer needs.</p>
+                    <p>Beyond my professional work, I am a technology evangelist, blogger, writer, speaker, and event organizer passionate about sharing knowledge and driving innovation in the tech community.</p>
+                </div>
+                <div class="skills">
+                    <div class="skill-category">
+                        <h4>Areas of Interest</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Technology Leadership</span>
+                            <span class="skill-tag">Technical Architecture</span>
+                            <span class="skill-tag">Coding</span>
+                            <span class="skill-tag">Low/No-Coding</span>
+                            <span class="skill-tag">Project Management</span>
+                            <span class="skill-tag">R&D</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Technical Focus</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Generative AI</span>
+                            <span class="skill-tag">LLMs</span>
+                            <span class="skill-tag">Agentic AI</span>
+                            <span class="skill-tag">Full Stack Development</span>
+                            <span class="skill-tag">.NET</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">NoSQL</span>
+                            <span class="skill-tag">Clean Code</span>
+                            <span class="skill-tag">Azure OpenAI</span>
+                            <span class="skill-tag">Cloud Architecture</span>
+                            <span class="skill-tag">Microservices</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Experience</h2>
+            </div>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Director, Products & Innovation</h3>
+                            <p>Orion Innovation, India</p>
+                        </div>
+                        <div class="experience-date">December 2023 – Present</div>
+                    </div>
+                    <div class="experience-content">
+                        <ul>
+                            <li>Drive Product Strategy: Define and lead the product vision, aligning with market needs and business goals.</li>
+                            <li>Lead Innovation: Foster a culture of innovation, implementing new technologies and methodologies.</li>
+                            <li>Oversee Global Project Execution: Manage end-to-end project delivery across global, co-located teams.</li>
+                            <li>Develop & Support Teams: Mentor a diverse, worldwide team, providing training and promoting growth.</li>
+                            <li>Major projects include Chat Bots, Analyzers and summarizers using Open AI and locally hosted LLMs.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Program Director</h3>
+                            <p>Adfolks LLC. – a Zain Group Company, Dubai, UAE</p>
+                        </div>
+                        <div class="experience-date">April 2021 – November 2023</div>
+                    </div>
+                    <div class="experience-content">
+                        <ul>
+                            <li>Handled Application development, cloud and data projects.</li>
+                            <li>Supported Pre-sales teams with Technical solutions and interacted with customers on solutions.</li>
+                            <li>Managed & Mentored Development & Infra Teams.</li>
+                            <li>Led Solution and Technology Architecture & Hands on implementation.</li>
+                            <li>Major projects included application development, assessments and modernization to cloud - Azure/AWS.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Senior Manager, Technology</h3>
+                            <p>Orion India Systems Private Limited., Infopark, Cochin, Kerala</p>
+                        </div>
+                        <div class="experience-date">October 2012 – March 2021</div>
+                    </div>
+                    <div class="experience-content">
+                        <ul>
+                            <li>Headed the Architecture & Technology Department (Architecture - Center for Innovation).</li>
+                            <li>Led ORTIA (Orion's Technology Innovation and Agility Group) and Training Department.</li>
+                            <li>Responsible for R&D, Architecture, Design Reviews and Training teams.</li>
+                            <li>Pre-Sales & Solution Architecture for major projects and Application Performance Reviews.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Cloud Technologies</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Microsoft Azure</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Azure OpenAI</span>
+                        <span class="skill-tag">Power Platform</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Docker</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>AI/ML</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Generative AI</span>
+                        <span class="skill-tag">LLMs</span>
+                        <span class="skill-tag">LangChain</span>
+                        <span class="skill-tag">Semantic Kernel</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">TensorFlow</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Development</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">.NET Framework/Core</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">ASP.NET</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Angular</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Data</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SQL Server</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">CosmosDB</span>
+                        <span class="skill-tag">Power BI</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Methodologies</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Agile</span>
+                        <span class="skill-tag">Scrum</span>
+                        <span class="skill-tag">Kanban</span>
+                        <span class="skill-tag">Clean Architecture</span>
+                        <span class="skill-tag">Microservices</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Tools & Platforms</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Azure DevOps</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Dynamics 365</span>
+                        <span class="skill-tag">SharePoint</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Jira</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="certifications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications & Achievements</h2>
+            </div>
+            <div class="certifications">
+                <div class="certification-card">
+                    <h4>Microsoft MVP (Most Valuable Professional)</h4>
+                    <p>Microsoft</p>
+                </div>
+                <div class="certification-card">
+                    <h4>Project Management Professional (PMP)</h4>
+                    <p>Project Management Institute</p>
+                </div>
+                <div class="certification-card">
+                    <h4>Microsoft Certified: Azure Solutions Architect Expert</h4>
+                    <p>Microsoft</p>
+                </div>
+                <div class="certification-card">
+                    <h4>Certified Scrum Product Owner (CSPO)</h4>
+                    <p>Scrum Alliance</p>
+                </div>
+                <div class="certification-card">
+                    <h4>Azure AI Engineer</h4>
+                    <p>Microsoft</p>
+                </div>
+                <div class="certification-card">
+                    <h4>Google UX Design Professional</h4>
+                    <p>Google</p>
+                </div>
+                <div class="certification-card">
+                    <h4>Microsoft Certified Innovative Educator (MCIE)</h4>
+                    <p>Microsoft</p>
+                </div>
+                <div class="certification-card">
+                    <h4>Six Sigma White & Yellow Belt</h4>
+                    <p>Six Sigma</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <h3>Get In Touch</h3>
+                <div class="contact-info">
+                    <a href="mailto:ninethsense@outlook.com"><i class="fas fa-envelope"></i> ninethsense@outlook.com</a>
+                    <a href="tel:+919645889033"><i class="fas fa-phone"></i> +91 9645889033</a>
+                </div>
+                <div class="social-links">
+                    <a href="http://in.linkedin.com/in/ninethsense" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="http://blog.ninethsense.com" target="_blank" title="Blog"><i class="fas fa-blog"></i></a>
+                    <a href="https://github.com/ninethsense" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="http://www.twitter.com/ninethsense" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/@LearnNow1" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p class="copyright">© 2025 Praveen Nair. All rights reserved.</p>
+                <div class="ai-credit">
+                    <span>Website crafted with</span>
+                    <a href="https://deepseek.com" target="_blank">
+                        <i class="fas fa-robot"></i> Deepseek AI Assistant
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Add animation to elements when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        document.querySelectorAll('.experience-item, .certification-card, .skill-category').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Share functions
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent("Check out Praveen Nair's professional profile");
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+        }
+        
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent("Check out Praveen Nair's professional profile:");
+            window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+        }
+        
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+        }
+        
+        function shareViaEmail() {
+            const subject = encodeURIComponent("Praveen Nair's Professional Profile");
+            const body = encodeURIComponent(`Check out Praveen Nair's professional profile: ${window.location.href}`);
+            window.location.href = `mailto:?subject=${subject}&body=${body}`;
+        }
+    </script>
+</body>
+</html>
